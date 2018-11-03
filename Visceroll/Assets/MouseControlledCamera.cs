@@ -115,7 +115,7 @@ public class MouseControlledCamera : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, transform.forward, out hit, 100.0f))
 		{
-			if (hit.transform.GetComponent<Interactable>() != null)
+			if (hit.transform.GetComponent<DragInteractable>() != null)
 			{
 				_crosshair.sprite = crosshairHover;
 				if (Input.GetMouseButtonDown(0))
@@ -123,7 +123,7 @@ public class MouseControlledCamera : MonoBehaviour {
 					_isDragging = true;
 					_dragTarget = hit.transform;
 					if (_target == null) _target = new GameObject("target").transform;
-					_target.position = _dragTarget.position;
+					_target.position = transform.position + (transform.forward * 3.0f);//_dragTarget.position;
 					_target.parent = transform;
 
 					if (_dragTarget.GetComponent<Rigidbody>())
