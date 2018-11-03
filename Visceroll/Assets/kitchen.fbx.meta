@@ -94,7 +94,32 @@ ModelImporter:
     6400022: Cube.011
     6400024: Cube.012
     10800000: Lamp
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 9aec298401d1947608dbc7154aa13adc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: c8aa3d516ab0047a3928d90032b27449, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 0d9c3ac4b2a394a42a2bcb9ec5f7226b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 1771b18bcaa674c12a9001ce0c7d9d48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 720e0b368fd4246e195660fe1334fed1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
