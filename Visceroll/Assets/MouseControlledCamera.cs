@@ -130,6 +130,7 @@ public class MouseControlledCamera : MonoBehaviour {
 						_dragTarget.GetComponent<Rigidbody>().useGravity = false;
 				}
 			}
+			else _crosshair.sprite = crosshairStandard;
 		}
 		else if (Input.GetMouseButton(0)) _crosshair.sprite = crosshairHover;
 		else _crosshair.sprite = crosshairStandard;
