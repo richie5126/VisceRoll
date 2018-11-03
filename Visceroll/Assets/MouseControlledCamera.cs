@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
- 
+using UnityEngine.XR.WSA;
+
 [AddComponentMenu("Camera-Control/Smooth Mouse Look")]
 public class MouseControlledCamera : MonoBehaviour {
  
@@ -114,16 +115,44 @@ public class MouseControlledCamera : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, transform.forward, out hit, 100.0f))
 		{
-			if (transform.GetComponent<Interactable>() != null)
+			if (hit.transform.GetComponent<Interactable>() != null)
 			{
 				_crosshair.sprite = crosshairHover;
+				if (Input.GetMouseButtonDown(0))
+				{
+					_isDragging = true;
+					_dragTarget = hit.transform;
+					if (_target == null) _target = new GameObject("target").transform;
+					_target.position = _dragTarget.position;
+					_target.parent = transform;
+
+					if (_dragTarget.GetComponent<Rigidbody>())
+						_dragTarget.GetComponent<Rigidbody>().useGravity = false;
+				}
 			}
 		}
+		else if (Input.GetMouseButton(0)) _crosshair.sprite = crosshairHover;
 		else _crosshair.sprite = crosshairStandard;
+
+		if (_dragTarget != null && _dragTarget.GetComponent<Rigidbody>())
+		{
+			_dragTarget.GetComponent<Rigidbody>().velocity = (_target.position - _dragTarget.position) * 20.0f;
+		}
+		
+		if (Input.GetMouseButtonUp(0) && _dragTarget != null)
+		{
+			_isDragging = false;
+			if (_dragTarget.GetComponent<Rigidbody>())
+				_dragTarget.GetComponent<Rigidbody>().useGravity = true;
+			_dragTarget = null;
+		}
 	}
 
+	private bool _isDragging = false;
+	private Transform _target, _dragTarget;
+	
 	[SerializeField] private UnityEngine.UI.Image _crosshair;
-	public Sprite crosshairStandard, crosshairHover;
+	public Sprite crosshairStandard, crosshairHover, crosshairDoorHover;
 	void Start ()
 	{
                 Rigidbody rb = GetComponent<Rigidbody>();	
