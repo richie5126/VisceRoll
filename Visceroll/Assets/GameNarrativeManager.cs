@@ -21,15 +21,15 @@ public class GameNarrativeManager : MonoBehaviour {
 		public AudioClip StartTaskClip, CompletedTaskClip;
 		public List<AudioClip> DuringTaskClip;
 		public List<string> StartTaskText, DuringTaskText, CompletedTaskText;
-		public UnityEvent OnStartTask, OnCompleteTask;
 		public float AutoNextSpeed = 3.0f;
 
 		public enum ActionType
 		{
-			SPAWN1,
+			SPAWN1PLACEON2,
 			PLACE1ON2,
 			COMBINE1WITH2TOMAKE3,
-			CHOP1
+			CHOP1,
+			CONSUME1
 		}
 
 		public ActionType Action;
@@ -94,6 +94,16 @@ public class GameNarrativeManager : MonoBehaviour {
 			//start the task elegantly
 			switch (t.Action)
 			{
+				case Task.ActionType.CONSUME1:
+					
+					t.Item1.OnCollisionEntered += CompleteTask;
+					t.Item1.gameObject.SetActive(true);
+					t.Item1.transform.position = t.SpawnPosition.position;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+					
+					break;
+				
 				case Task.ActionType.COMBINE1WITH2TOMAKE3:
 					t.Item1.OnCollisionEntered += CompleteTask;
 					break;
@@ -102,7 +112,7 @@ public class GameNarrativeManager : MonoBehaviour {
 					break;
 				case Task.ActionType.CHOP1:
 					break;
-				case Task.ActionType.SPAWN1:
+				case Task.ActionType.SPAWN1PLACEON2:
 					t.Item1.OnCollisionEntered += CompleteTask;
 					t.Item1.gameObject.SetActive(true);
 					t.Item1.transform.position = t.SpawnPosition.position;
@@ -115,12 +125,20 @@ public class GameNarrativeManager : MonoBehaviour {
 			}
 			while (!_taskCompleted)
 			{
+				if(val < t.DuringTaskText.Count)
 				TypeTextToTextbox(t.DuringTaskText[val], t.AutoNextSpeed);
 				yield return new WaitUntil(() => _textFinished || _taskCompleted);
-				val = (val + 1) % t.DuringTaskText.Count;
+				++val;
 			}
 			switch (t.Action)
 			{
+				case Task.ActionType.CONSUME1:
+					
+					
+					t.Item1.OnCollisionEntered -= CompleteTask;
+					t.Item1.gameObject.SetActive(false);
+					break;
+					
 				case Task.ActionType.COMBINE1WITH2TOMAKE3:
 					t.Item1.OnCollisionEntered -= CompleteTask;
 					t.Item3.gameObject.SetActive(true);
@@ -138,8 +156,12 @@ public class GameNarrativeManager : MonoBehaviour {
 					break;
 				case Task.ActionType.CHOP1:
 					break;
-				case Task.ActionType.SPAWN1:
+				case Task.ActionType.SPAWN1PLACEON2:
 					t.Item1.OnCollisionEntered -= CompleteTask;
+					if (t.LockedTransform != null) t.Item1.transform.position = t.LockedTransform.position;
+					t.Item1.transform.rotation = t.LockedTransform.rotation;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 					break;
 				default:
 					break;
