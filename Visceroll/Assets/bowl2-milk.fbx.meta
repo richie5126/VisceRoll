@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1c14481ec808449c4be40b7695257ae0
+guid: 4f71a98be69414bf0887946f8f6c1d66
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -12,18 +12,23 @@ ModelImporter:
     400004: Lamp
     400006: Sphere
     2000000: Camera
-    2100000: No Name
+    2100000: Material.001
+    2100002: Material.002
     2300000: Sphere
     3300000: Sphere
     4300000: Sphere
-    6400000: Sphere
     10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
+      name: Material.001
     second: {fileID: 2100000, guid: 8411ab7d817684a60bfe0067522f569b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 4e02d212082314bfca36aac47e986d90, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -56,7 +61,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

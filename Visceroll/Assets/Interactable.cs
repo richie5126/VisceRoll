@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour {
 
 	public CollisionDetected OnCollisionEntered;
 
-	void OnCollisionEnter(Collision other)
+	protected void OnCollisionEnter(Collision other)
 	{
 		if (GetComponent<AudioSource>()) GetComponent<AudioSource>().Play();
 		if (other.transform.GetComponent<Interactable>())

@@ -27,9 +27,12 @@ public class GameNarrativeManager : MonoBehaviour {
 		{
 			SPAWN1PLACEON2,
 			PLACE1ON2,
+			PLACE1SUBCOMPONENTON2,
 			COMBINE1WITH2TOMAKE3,
-			CHOP1,
-			CONSUME1
+			CHOP2WITH1,
+			CONSUME1,
+			SPAWNANDCONSUME1,
+			SPAWN1POURINTO2
 		}
 
 		public ActionType Action;
@@ -75,7 +78,7 @@ public class GameNarrativeManager : MonoBehaviour {
 	}
 
 	private bool _taskCompleted;
-	private int _conductor = 0;
+	[SerializeField] private int _conductor = 0;
 	IEnumerator TaskUpdater()
 	{
 		while (true)
@@ -98,6 +101,14 @@ public class GameNarrativeManager : MonoBehaviour {
 					
 					t.Item1.OnCollisionEntered += CompleteTask;
 					t.Item1.gameObject.SetActive(true);
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+					
+					break;
+				case Task.ActionType.SPAWNANDCONSUME1:
+					
+					t.Item1.OnCollisionEntered += CompleteTask;
+					t.Item1.gameObject.SetActive(true);
 					t.Item1.transform.position = t.SpawnPosition.position;
 					if (t.Item1.GetComponent<Rigidbody>())
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -109,8 +120,16 @@ public class GameNarrativeManager : MonoBehaviour {
 					break;
 				case Task.ActionType.PLACE1ON2:
 					t.Item1.OnCollisionEntered += CompleteTask;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 					break;
-				case Task.ActionType.CHOP1:
+				case Task.ActionType.PLACE1SUBCOMPONENTON2:
+					t.Item1.OnCollisionEntered += CompleteTask;
+					break;
+				case Task.ActionType.CHOP2WITH1:
+					t.Item1.OnCollisionEntered += CompleteTask;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 					break;
 				case Task.ActionType.SPAWN1PLACEON2:
 					t.Item1.OnCollisionEntered += CompleteTask;
@@ -118,6 +137,14 @@ public class GameNarrativeManager : MonoBehaviour {
 					t.Item1.transform.position = t.SpawnPosition.position;
 					if (t.Item1.GetComponent<Rigidbody>())
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+					break;
+				case Task.ActionType.SPAWN1POURINTO2:
+					t.Item1.OnCollisionEntered += CompleteTask;
+					t.Item1.gameObject.SetActive(true);
+					t.Item1.transform.position = t.SpawnPosition.position;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+					
 					
 					break;
 				default:
@@ -133,6 +160,12 @@ public class GameNarrativeManager : MonoBehaviour {
 			switch (t.Action)
 			{
 				case Task.ActionType.CONSUME1:
+					
+					
+					t.Item1.OnCollisionEntered -= CompleteTask;
+					t.Item1.gameObject.SetActive(false);
+					break;
+				case Task.ActionType.SPAWNANDCONSUME1:
 					
 					
 					t.Item1.OnCollisionEntered -= CompleteTask;
@@ -154,14 +187,40 @@ public class GameNarrativeManager : MonoBehaviour {
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 					
 					break;
-				case Task.ActionType.CHOP1:
+				
+				case Task.ActionType.PLACE1SUBCOMPONENTON2:
+					t.Item1.OnCollisionEntered -= CompleteTask;
+					t.Item1.transform.parent = t.Item2.transform;
+					if (t.Item1.GetComponent<Rigidbody>())
+						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+					break;
+				
+				case Task.ActionType.CHOP2WITH1:
+					t.Item1.OnCollisionEntered -= CompleteTask;
 					break;
 				case Task.ActionType.SPAWN1PLACEON2:
 					t.Item1.OnCollisionEntered -= CompleteTask;
-					if (t.LockedTransform != null) t.Item1.transform.position = t.LockedTransform.position;
-					t.Item1.transform.rotation = t.LockedTransform.rotation;
+					if (t.LockedTransform != null)
+					{
+						t.Item1.transform.position = t.LockedTransform.position;
+						t.Item1.transform.rotation = t.LockedTransform.rotation;
+					}
 					if (t.Item1.GetComponent<Rigidbody>())
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+					break;
+				case Task.ActionType.SPAWN1POURINTO2:
+					t.Item1.OnCollisionEntered -= CompleteTask;
+					t.Item1.gameObject.SetActive(false);
+
+					if (t.Item3 != null)
+					{
+						t.Item3.gameObject.SetActive(true);
+						t.Item3.transform.position = t.Item2.transform.position;
+						t.Item2.gameObject.SetActive(false);
+						
+						if (t.Item3.GetComponent<Rigidbody>())
+						t.Item3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+					}
 					break;
 				default:
 					break;

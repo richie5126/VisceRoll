@@ -125,6 +125,10 @@ public class MouseControlledCamera : MonoBehaviour {
 				{
 					if (hit.transform.GetComponent<DragInteractable>())
 					{
+						GameNarrativeManager.Instance.CompleteTask(
+							hit.transform.GetComponent<DragInteractable>(), null);
+						
+						
 						_isDragging = true;
 						_dragTarget = hit.transform;
 						if (_target == null) _target = new GameObject("target").transform;
@@ -149,6 +153,10 @@ public class MouseControlledCamera : MonoBehaviour {
 
 		if (_dragTarget != null && _dragTarget.GetComponent<Rigidbody>())
 		{
+			if (_dragTarget.GetComponent<Knife>())
+			{
+				_dragTarget.rotation = Quaternion.Lerp(_dragTarget.rotation, transform.rotation, 0.3f);
+			}
 			_dragTarget.GetComponent<Rigidbody>().velocity = (_target.position - _dragTarget.position) * 20.0f;
 		}
 		
