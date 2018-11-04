@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4588,19 +4588,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Jobs:
-  - IntroDelay: 4
+  - IntroDelay: 2
     StartTaskClip: {fileID: 0}
     CompletedTaskClip: {fileID: 0}
     DuringTaskClip: []
     StartTaskText:
-    - Hello? Is this thing on?...
-    - Welcome to cooking class, take some time to get comfortable!
+    - Alright, are we on?  Can you read?
+    - Welcome to cooking class, take some time to get comfortable, you're gonna be
+      here a while.
     DuringTaskText:
     - Here, have a cup of water to help you relax.
     - Go ahead, drink it!
     CompletedTaskText:
-    - Ahh! Refreshing!
-    - But let's keep moving.
+    - Ahh! Refreshing right?
+    - Alright, let's get cooking!
     AutoNextSpeed: 1
     Action: 6
     SpawnPosition: {fileID: 1935355493}
@@ -4614,6 +4615,7 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText:
     - Since it's still morning, let's start out with some breakfast.
+    - How about a bowl of cereal?
     DuringTaskText:
     - Just grab a bowl from the cupboard and put it on the cutting board.
     CompletedTaskText:
@@ -4632,8 +4634,9 @@ MonoBehaviour:
     StartTaskText: []
     DuringTaskText:
     - Now grab the cereal box and pour it in the bowl!
+    - (Don't be one of those who puts milk before cereal).
     CompletedTaskText:
-    - Good Job!
+    - Perfect!
     AutoNextSpeed: 1
     Action: 7
     SpawnPosition: {fileID: 834549454}
@@ -4647,11 +4650,10 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText: []
     DuringTaskText:
-    - Let's top it off with some milk!
+    - Now let's add some milk!
     - It's in the fridge behind you
-    - (Don't be that guy who does milk and cereal).
     CompletedTaskText:
-    - Good Job!
+    - Mmm, milk!
     AutoNextSpeed: 1
     Action: 7
     SpawnPosition: {fileID: 1124758796}
@@ -4665,12 +4667,13 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText: []
     DuringTaskText:
-    - Fantastic! Time to eat your creation!
+    - Now it's time to eat your creation!
+    - Go on! Don't be scared.
     CompletedTaskText:
-    - Wow, you're a real CEREAL killer!
+    - Ha!  You're a real CEREAL killernow huh!
     - '...'
     - lol
-    - Anyway, on to making lunch!
+    - Anyway, let's move on to lunch!
     AutoNextSpeed: 1
     Action: 5
     SpawnPosition: {fileID: 834549454}
@@ -4683,13 +4686,13 @@ MonoBehaviour:
     CompletedTaskClip: {fileID: 0}
     DuringTaskClip: []
     StartTaskText:
-    - "Well, it wouldn\u2019t be a cooking class if we only made cereal, so let's
-      make something more difficult for lunch."
+    - "It wouldn\u2019t be a cooking class if we only made cereal, so let's make something
+      more difficult."
     - How about a sandwich?
     DuringTaskText:
     - Grab a plate from the cupboard and put it on the counter.
     CompletedTaskText:
-    - Good Job!
+    - Fantastic!
     AutoNextSpeed: 1
     Action: 0
     SpawnPosition: {fileID: 834549454}
@@ -4703,9 +4706,9 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText: []
     DuringTaskText:
-    - Grab some bread from the fridge and put that on the cutting board.
+    - Now grab some bread from the fridge and put it on the cutting board.
     CompletedTaskText:
-    - Good Job!
+    - Bread-tastic!
     AutoNextSpeed: 1
     Action: 0
     SpawnPosition: {fileID: 1124758796}
@@ -4719,12 +4722,12 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText: []
     DuringTaskText:
-    - Chop the bread with the knife.
+    - go ahead and slice the bread with the knife.
     - Dewit.
-    - Chop that bread.
-    - Chop that bread. like a fucking champ.
+    - Cut that bread.
     CompletedTaskText:
     - Niiiiiiiiiice
+    - You're a natural with that knife!
     AutoNextSpeed: 1
     Action: 4
     SpawnPosition: {fileID: 1124758796}
@@ -4733,7 +4736,7 @@ MonoBehaviour:
     Item3: {fileID: 0}
     LockedTransform: {fileID: 0}
   _taskBox: {fileID: 377768468}
-  _conductor: 5
+  _conductor: 0
 --- !u!4 &1875977029
 Transform:
   m_ObjectHideFlags: 0
