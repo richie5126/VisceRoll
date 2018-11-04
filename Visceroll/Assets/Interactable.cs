@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour {
 		
 	}
 
-	public delegate void CollisionDetected(Interactable item1, Interactable item2);
+	public delegate void CollisionDetected(Interactable item1, Interactable item2, Interactable item3 = null);
 
 	public CollisionDetected OnCollisionEntered;
 

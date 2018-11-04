@@ -7,6 +7,7 @@
         <e p="ChopInteractable.cs" t="Include" />
         <e p="ClickInteractable.cs" t="Include" />
         <e p="DragInteractable.cs" t="Include" />
+        <e p="EventManager.cs" t="Include" />
         <e p="GameNarrativeManager.cs" t="Include" />
         <e p="Interactable.cs" t="Include" />
         <e p="Knife.cs" t="Include" />

@@ -68,9 +68,14 @@ public class GameNarrativeManager : MonoBehaviour {
 		_textFinished = true;
 	}
 
-	public void CompleteTask(Interactable item1, Interactable item2)
+	public void CompleteTask(Interactable item1, Interactable item2, Interactable item3 = null)
 	{
 		var t = Jobs[_conductor];
+		if (item3 != null)
+		{
+			Debug.Log("Whoa!");
+			t.Item3 = item3;
+		}
 		if (t.Item1 == item1 && t.Item2 == item2)
 		{
 			_taskCompleted = true;
@@ -139,7 +144,7 @@ public class GameNarrativeManager : MonoBehaviour {
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 					break;
 				case Task.ActionType.SPAWN1POURINTO2:
-					t.Item1.OnCollisionEntered += CompleteTask;
+					//t.Item1.OnCollisionEntered += CompleteTask;
 					t.Item1.gameObject.SetActive(true);
 					t.Item1.transform.position = t.SpawnPosition.position;
 					if (t.Item1.GetComponent<Rigidbody>())
@@ -190,9 +195,13 @@ public class GameNarrativeManager : MonoBehaviour {
 				
 				case Task.ActionType.PLACE1SUBCOMPONENTON2:
 					t.Item1.OnCollisionEntered -= CompleteTask;
-					t.Item1.transform.parent = t.Item2.transform;
-					if (t.Item1.GetComponent<Rigidbody>())
-						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+					if (t.Item3 != null)
+					{
+						t.Item3.transform.parent = t.Item2.transform;
+						if (t.Item3.GetComponent<Rigidbody>())
+							t.Item3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+					}
+
 					break;
 				
 				case Task.ActionType.CHOP2WITH1:
@@ -209,7 +218,7 @@ public class GameNarrativeManager : MonoBehaviour {
 						t.Item1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 					break;
 				case Task.ActionType.SPAWN1POURINTO2:
-					t.Item1.OnCollisionEntered -= CompleteTask;
+					//t.Item1.OnCollisionEntered -= CompleteTask;
 					t.Item1.gameObject.SetActive(false);
 
 					if (t.Item3 != null)

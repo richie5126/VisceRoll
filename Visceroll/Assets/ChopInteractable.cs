@@ -8,12 +8,11 @@ public class ChopInteractable : DragInteractable {
 	public Interactable Owner;
 	void Start ()
 	{
-		Owner = transform.root.GetComponent<Interactable>();
+		if(Owner == null) Owner = transform.root.GetComponent<Interactable>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 	protected new void OnCollisionEnter(Collision other)
 	{
@@ -26,7 +25,7 @@ public class ChopInteractable : DragInteractable {
 				if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().isKinematic = false;
 			}
 			
-			GameNarrativeManager.Instance.CompleteTask(Owner, other.transform.GetComponent<Interactable>());
+			GameNarrativeManager.Instance.CompleteTask(Owner, other.transform.GetComponent<Interactable>(), this);
 			
 		}
 	}
