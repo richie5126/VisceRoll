@@ -4683,8 +4683,8 @@ MonoBehaviour:
     CompletedTaskClip: {fileID: 0}
     DuringTaskClip: []
     StartTaskText:
-    - "t wouldn\u2019t be a cooking class if we only made cereal, so let's make something
-      more difficult for lunch."
+    - "Well, it wouldn\u2019t be a cooking class if we only made cereal, so let's
+      make something more difficult for lunch."
     - How about a sandwich?
     DuringTaskText:
     - Grab a plate from the cupboard and put it on the counter.
