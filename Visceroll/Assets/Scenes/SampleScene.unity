@@ -4594,13 +4594,13 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText:
     - Alright, are we on?  Can you read?
-    - Welcome to cooking class, take some time to get comfortable, you're gonna be
-      here a while.
+    - Welcome to cooking class!
+    - Take some time to get comfortable, you're gonna be here a while.
     DuringTaskText:
     - Here, have a cup of water to help you relax.
     - Go ahead, drink it!
     CompletedTaskText:
-    - Ahh! Refreshing right!
+    - Ahh!  Refreshing right!
     - Alright, let's get cooking!
     AutoNextSpeed: 1
     Action: 6
@@ -4668,7 +4668,7 @@ MonoBehaviour:
     StartTaskText: []
     DuringTaskText:
     - Now it's time to eat your creation!
-    - Go on! Don't be scared.
+    - Go on don't be scared!
     CompletedTaskText:
     - Ha!  You're a real CEREAL killer now huh!
     - '...'
@@ -4722,7 +4722,7 @@ MonoBehaviour:
     DuringTaskClip: []
     StartTaskText: []
     DuringTaskText:
-    - go ahead and slice the bread with the knife.
+    - Go ahead and slice the bread with the knife.
     - Dewit.
     - Cut that bread.
     CompletedTaskText:
