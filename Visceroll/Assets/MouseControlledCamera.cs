@@ -117,17 +117,33 @@ public class MouseControlledCamera : MonoBehaviour {
 		{
 			if (hit.transform.GetComponent<Interactable>() != null)
 			{
+				if(hit.transform.GetComponent<DragInteractable>() ||
+				   hit.transform.GetComponent<ClickInteractable>())
+					
 				_crosshair.sprite = crosshairHover;
 				if (Input.GetMouseButtonDown(0))
 				{
-					_isDragging = true;
-					_dragTarget = hit.transform;
-					if (_target == null) _target = new GameObject("target").transform;
-					_target.position = _dragTarget.position;
-					_target.parent = transform;
+					if (hit.transform.GetComponent<DragInteractable>())
+					{
+						GameNarrativeManager.Instance.CompleteTask(
+							hit.transform.GetComponent<DragInteractable>(), null);
+						
+						
+						_isDragging = true;
+						_dragTarget = hit.transform;
+						if (_target == null) _target = new GameObject("target").transform;
+						_target.position = transform.position + (transform.forward * 3.0f); //_dragTarget.position;
+						_target.parent = transform;
 
-					if (_dragTarget.GetComponent<Rigidbody>())
-						_dragTarget.GetComponent<Rigidbody>().useGravity = false;
+
+						if (_dragTarget.GetComponent<Rigidbody>())
+							_dragTarget.GetComponent<Rigidbody>().useGravity = false;
+					}
+					else if (hit.transform.GetComponent<ClickInteractable>())
+					{
+						GameNarrativeManager.Instance.CompleteTask(
+							hit.transform.GetComponent<ClickInteractable>(), null);
+					}
 				}
 			}
 			else _crosshair.sprite = crosshairStandard;
@@ -137,6 +153,10 @@ public class MouseControlledCamera : MonoBehaviour {
 
 		if (_dragTarget != null && _dragTarget.GetComponent<Rigidbody>())
 		{
+			if (_dragTarget.GetComponent<Knife>())
+			{
+				_dragTarget.rotation = Quaternion.Lerp(_dragTarget.rotation, transform.rotation, 0.3f);
+			}
 			_dragTarget.GetComponent<Rigidbody>().velocity = (_target.position - _dragTarget.position) * 20.0f;
 		}
 		

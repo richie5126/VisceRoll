@@ -1,14 +1,22 @@
 fileFormatVersion: 2
-guid: 14029aa44bb374c488af03c6c06b0959
+guid: 46749f51710534515bdc80b27a8aa443
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Lamp
+    100006: Sphere
     400000: //RootNode
-    2100000: Plate
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Plate1
+    400002: Camera
+    400004: Lamp
+    400006: Sphere
+    2000000: Camera
+    2100000: No Name
+    2300000: Sphere
+    3300000: Sphere
+    4300000: Sphere
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -64,8 +72,8 @@ ModelImporter:
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
-    tangentImportMode: 4
+    normalImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
