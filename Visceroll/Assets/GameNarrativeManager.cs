@@ -219,7 +219,7 @@ public class GameNarrativeManager : MonoBehaviour {
 					break;
 				case Task.ActionType.SPAWN1POURINTO2:
 					//t.Item1.OnCollisionEntered -= CompleteTask;
-					t.Item1.gameObject.SetActive(false);
+					//t.Item1.gameObject.SetActive(false);
 
 					if (t.Item3 != null)
 					{
