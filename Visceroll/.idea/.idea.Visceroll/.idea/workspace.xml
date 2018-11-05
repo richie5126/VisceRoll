@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a21f9a85-5e42-4486-9e95-7a83c7e93ff1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Visceroll/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Visceroll/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameNarrativeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameNarrativeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/cerealpiece.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/cerealpiece.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/milkpiece.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/milkpiece.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -105,17 +100,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PouredInteractable.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PouredInteractable.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/PouredInteractable.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding>
-                <marker date="1541293522000" expanded="true" signature="6:121" ph="..." />
-                <marker date="1541293522000" expanded="true" signature="174:540" ph="{...}" />
-                <marker date="1541293522000" expanded="true" signature="256:260" ph="{...}" />
-                <marker date="1541293522000" expanded="true" signature="278:284" ph="{...}" />
-                <marker date="1541293522000" expanded="true" signature="337:538" ph="{...}" />
+                <marker date="1541380110000" expanded="true" signature="6:78" ph="..." />
+                <marker date="1541380110000" expanded="true" signature="131:497" ph="{...}" />
+                <marker date="1541380110000" expanded="true" signature="213:217" ph="{...}" />
+                <marker date="1541380110000" expanded="true" signature="235:241" ph="{...}" />
+                <marker date="1541380110000" expanded="true" signature="294:495" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scener.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scener.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+              <folding>
+                <marker date="1541381310000" expanded="false" signature="6:78" ph="..." />
+                <marker date="1541381310000" expanded="true" signature="116:390" ph="{...}" />
+                <marker date="1541381310000" expanded="true" signature="166:173" ph="{...}" />
+                <marker date="1541381310000" expanded="true" signature="228:363" ph="{...}" />
+                <marker date="1541381310000" expanded="true" signature="381:388" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -229,6 +240,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PouredInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DragInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Knife.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MouseControlledCamera.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -237,10 +249,11 @@
         <option value="$PROJECT_DIR$/Assets/PourInteractable.cs" />
         <option value="$PROJECT_DIR$/Assets/Knife.cs" />
         <option value="$PROJECT_DIR$/Assets/MouseControlledCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/PouredInteractable.cs" />
         <option value="$PROJECT_DIR$/Assets/Interactable.cs" />
         <option value="$PROJECT_DIR$/Assets/ChopInteractable.cs" />
         <option value="$PROJECT_DIR$/Assets/GameNarrativeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/PouredInteractable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scener.cs" />
       </list>
     </option>
   </component>
@@ -316,12 +329,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541210813741</updated>
-      <workItem from="1541210819374" duration="25276000" />
+      <workItem from="1541210819374" duration="25609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25276000" />
+    <option name="totallyTimeSpent" value="25609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -526,14 +539,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/PouredInteractable.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
-            <marker date="1541293522000" expanded="true" signature="6:121" ph="..." />
-            <marker date="1541293522000" expanded="true" signature="174:540" ph="{...}" />
-            <marker date="1541293522000" expanded="true" signature="256:260" ph="{...}" />
-            <marker date="1541293522000" expanded="true" signature="278:284" ph="{...}" />
-            <marker date="1541293522000" expanded="true" signature="337:538" ph="{...}" />
+            <marker date="1541380110000" expanded="true" signature="6:78" ph="..." />
+            <marker date="1541380110000" expanded="true" signature="131:497" ph="{...}" />
+            <marker date="1541380110000" expanded="true" signature="213:217" ph="{...}" />
+            <marker date="1541380110000" expanded="true" signature="235:241" ph="{...}" />
+            <marker date="1541380110000" expanded="true" signature="294:495" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <marker date="1541381310000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1541381310000" expanded="true" signature="116:390" ph="{...}" />
+            <marker date="1541381310000" expanded="true" signature="166:173" ph="{...}" />
+            <marker date="1541381310000" expanded="true" signature="228:363" ph="{...}" />
+            <marker date="1541381310000" expanded="true" signature="381:388" ph="{...}" />
           </folding>
         </state>
       </provider>
